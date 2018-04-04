@@ -1,5 +1,4 @@
 #! /bin/env/ python3
-# Aalok S., 3 Apr 2018
 
 import modarithmetic
 
