@@ -25,19 +25,21 @@ nums = [0,1]
 
 def calcNumPrimeReprs(x):
     #print("\nCalculating for %d" % x)
-    numWays.append(int(modarithmetic.isPrime(x, 128)))
+    numWays.append(0)#int(modarithmetic.isPrime(x, 128)))
     nums.append(x)
     #print(nums, "\t", numWays)
     for i in range(2,x//2+1):
+        if not modarithmetic.isPrime(i,100):
+            continue
         #print(i,x-i,numWays[i] , numWays[x-i])
-        numWays[-1] += int((numWays[i] and numWays[x-i]) > 0)
+        numWays[-1] += int((numWays[i] * numWays[x-i]))
     #print(nums[:])
     #print(numWays[:])
 
 pp.print_progress(numWays[-1], upper_limit)
 for num in numbers:
     calcNumPrimeReprs(num)
-    pp.print_progress(numWays[-1], upper_limit)
+    #pp.print_progress(numWays[-1], upper_limit)
     #print(num, numWays[-1], "\n")
     #if numWays[-1] % 10 in {0,}:
     #    print ("\t", num, numWays[-1])
