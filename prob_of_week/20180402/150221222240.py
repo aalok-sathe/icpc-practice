@@ -2,29 +2,34 @@
 
 import modarithmetic
 
-target = int(input("Target?\t"))
+target = 1000#int(input("Target?\t"))
 
 denominations = []
 #denominations.reverse()
 
-num_ways = {0:{}, -1:}
-for num in range(target+1):
+last_index = None
+
+num_ways = {0:{}, -1:{}}
+for num in range(2,target+1):
     if modarithmetic.isPrime(num,100):
         denominations.append(num)
-
+        num_ways[0][num] = 1
+        num_ways[-1][num] = 0
+        last_index = num
 
 
 for i in range(1,1+target):
-    num_ways[i] = {1:1,5:0,25:0,50:0,100:0,500:0,2000:0}
+    num_ways[i] = dict(num_ways[-1])
     for d in range(0,len(denominations)):
         if denominations[d] > i:
             pass#continue
         num_ways[i][denominations[d]] = num_ways.get(i-denominations[d],{}).get(denominations[d],0) + num_ways[i][denominations[d-1]]
         #num_ways[i]["T"] += num_ways[i][denominations[d]]
 
-#for i in range(1,len(num_ways)):
-print(num_ways[target][2000])
-    
+for i in range(len(num_ways)):
+    if num_ways[i][last_index] >= 150221222240:
+        print(i)
+        break
     
 #
 #
