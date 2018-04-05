@@ -29,21 +29,20 @@ def calcNumPrimeReprs(x):
     nums.append(x)
     #print(nums, "\t", numWays)
     for i in range(2,x//2+1):
-        if not modarithmetic.isPrime(i,100):
-            continue
-        #print(i,x-i,numWays[i] , numWays[x-i])
-        numWays[-1] += int((numWays[i] * numWays[x-i]))
+        if modarithmetic.isPrime(i,100):
+            #print(i,x-i,numWays[i] , numWays[x-i])
+            numWays[-1] += int((numWays[i] * numWays[x-i]))
     #print(nums[:])
     #print(numWays[:])
 
-pp.print_progress(numWays[-1], upper_limit)
+#pp.print_progress(numWays[-1], upper_limit)
 for num in numbers:
     calcNumPrimeReprs(num)
     #pp.print_progress(numWays[-1], upper_limit)
     #print(num, numWays[-1], "\n")
     #if numWays[-1] % 10 in {0,}:
     #    print ("\t", num, numWays[-1])
-    if numWays[-1] >= upper_limit and num > 11:
+    if numWays[-1] >= upper_limit or num > 11:
         print(list(zip(nums,numWays)))
         print(num)
         break
