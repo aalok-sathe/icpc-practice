@@ -2,7 +2,7 @@
 
 import modarithmetic # for .isPrime 
 
-target = 1000 #int(input("Target?\t"))
+target = 5000 #int(input("Target?\t"))
 
 # Similar to coins problem
 denominations = []
@@ -28,7 +28,7 @@ for i in range(1,1+target):
 
 # See for which number the answer matches
 for i in range(len(num_ways)):
-    if num_ways[i][last_index] >= 150221222240:
+    if num_ways[i][last_index] >= target: #150221222240:
         print(i)
         break
 
