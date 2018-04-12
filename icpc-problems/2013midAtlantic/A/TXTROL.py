@@ -35,6 +35,6 @@ try:
         indexTracker +=1
         
         print(currentColumn+1)
-        
+
 except Exception:
     pass
